@@ -10,7 +10,7 @@ export class Item {
     nome: string;
 
     @Column()
-    foto: string;
+    foto: string ;
 
     @Column()
     descricao: string;

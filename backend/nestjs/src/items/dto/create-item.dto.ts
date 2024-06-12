@@ -1,7 +1,7 @@
 export class CreateItemDto {
 
     nome: string;
-    foto: string;
+    foto: string
     descricao: string;
     valor_compra: number;
     valor_venda: number;
