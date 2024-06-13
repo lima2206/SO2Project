@@ -9,7 +9,7 @@ const Navbar: React.FC<TextComponentProps> = ({text}) => {
     
         
 
-<div className="flex flex-row items-center justify-between w-full p-2 bg-white bg-indigo-500 shadow-xs">
+<div className=" absolute z-10 flex flex-row items-center justify-between w-full p-2 bg-gray-600 shadow-xs">
     <div className="hidden ml-8 text-lg text-white md:flex">
         {text}
     </div>
@@ -39,7 +39,7 @@ const Navbar: React.FC<TextComponentProps> = ({text}) => {
                 <img src = 'https://img.icons8.com/?size=100&id=25717&format=png&color=000000' width="30" height="30" className="text-xl transition-colors duration-200">
                 </img>
             </a>
-            <a href="/login" className="">
+            <a href="/logout" className="">
                 <img src = 'https://img.icons8.com/?size=100&id=26218&format=png&color=000000' width="2048" height="1792" className="w-8 h-8 mr-2 text-white hover:text-gray-100">
                 </img>
             </a>

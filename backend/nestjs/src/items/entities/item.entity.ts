@@ -9,7 +9,7 @@ export class Item {
     @Column()
     nome: string;
 
-    @Column()
+    @Column( {type: 'text'} )
     foto: string ;
 
     @Column()

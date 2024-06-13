@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, EntityManager } from 'typeorm';
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -17,6 +18,19 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     const user = new User(createUserDto)
     await this.entityManager.save(user);
+  }
+
+  async authenticate(authUserDTO: CreateUserDto):Promise<Boolean> {
+    const email = authUserDTO.email
+    const password = authUserDTO.password
+
+    const user = await this.usersRepository.findOne({ where: {email} })
+      if (user && user.password === password){
+        return true
+
+    }else{
+      throw new UnauthorizedException('Credênciais invalidas')
+    }
   }
 
   async findAll() {

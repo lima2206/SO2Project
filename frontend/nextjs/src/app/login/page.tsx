@@ -1,17 +1,37 @@
 'use client'
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-  
+    const router = useRouter()
+
+
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 
       event.preventDefault()
 
-      console.log('Email:', email);
-      console.log('Password:', password);
+      const formData = {
+        email: email,
+        password: password
+      }
+      
+      const res = await fetch('http://localhost:5000/users/auth', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify(formData),
+    });
+
+    if (res.ok){
+    const logado = localStorage.setItem("logado", "logado")
+    router.replace('/')
+    }
       // Here you can add your logic to handle form submission, e.g., making an API call to your backend
     };
 
@@ -34,7 +54,7 @@ const Login = () => {
 			<button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
 		</form>
 	</div>
-</div>
+        </div>
 
     )
 
