@@ -2,19 +2,21 @@ import React from 'react';
 
 interface TextComponentProps {
     text: string;
+    search: string;
+    setSearch: (value: string) => void;
 }
 
-const Navbar: React.FC<TextComponentProps> = ({text}) => {
+const Navbar: React.FC<TextComponentProps> = ({text, search, setSearch}) => {
     return (
     
         
 
-<div className=" absolute z-10 flex flex-row items-center justify-between w-full p-2 bg-gray-600 shadow-xs">
+<div className=" fixed z-10 flex flex-row items-center justify-between w-full p-2 bg-gray-600 shadow-xs">
     <div className="hidden ml-8 text-lg text-white md:flex">
         {text}
     </div>
     <span className="flex w-full h-10 text-sm border border-gray-300 rounded-full cursor-pointer md:w-1/3">
-        <input type="search" name="serch" placeholder="Search" className="flex-grow px-4 text-sm rounded-l-full rounded-r-full focus:outline-none"/>
+        <input type="search"value={search} onChange={e => setSearch(e.target.value)} name="serch" placeholder="Search" className="flex-grow px-4 text-sm rounded-l-full rounded-r-full focus:outline-none"/>
     </span>
         <div className="flex flex-row-reverse ml-4 mr-4 text-white md:hidden">
             <button>
