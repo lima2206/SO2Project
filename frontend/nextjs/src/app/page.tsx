@@ -30,7 +30,7 @@ const Home = () => {
         // Function to fetch data
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/items/'); // Replace with your API endpoint
+                const response = await fetch('http://3.92.119.95:5000/items/'); // Replace with your API endpoint
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

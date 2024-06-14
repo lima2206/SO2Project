@@ -18,7 +18,7 @@ const Login = () => {
         password: password
       }
       
-      const res = await fetch('http://localhost:5000/users/auth', {
+      const res = await fetch('http://3.92.119.95:5000/users/auth', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

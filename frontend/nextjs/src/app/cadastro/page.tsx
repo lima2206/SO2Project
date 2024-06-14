@@ -64,7 +64,7 @@ const Cadastro = () => {
 
       try {
         console.log(formData)
-        const response = await fetch('http://localhost:5000/items', {
+        const response = await fetch('http://3.92.119.95:5000/items', {
           method: 'POST',
           headers: {
             'accept': 'application/json',
@@ -90,7 +90,7 @@ const Cadastro = () => {
     return (
 
       <div>
-        <Navbar text="Cadastro de Produtos" />
+        <Navbar text="Cadastro de Produtos" search="" setSearch={()=>{}} />
         <section className="bg-white dark:bg-gray-900 min-h-screen ">
           <div className="max-w-2xl px-4 py- mx-auto lg:py-16 ">
             <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white mt-10">Cadastrar Item</h2>
